@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <title>
+    <% if(typeof pageData !== 'undefined'){ %>
+    <%= pageData.pageTitle %> -
+    <%= pageData.pageYear %>
+    <% } else{ %>
+    Hello World!
+    <% } %>
+  </title>
+</head>
+<link rel="stylesheet" href="/assets/main.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.2.36/jodit.min.css" />
+
+<body>
+  <div>
+    <input type="checkbox" class="display-save-chk">
+    <div class="display-save">
+      <button class="input buttons-save is-action" data-action="newfile">
+        &#10004; Save</button>
+      <input type="text" class="input buttons-save" placeholder="Name of File/Folder (Required*)" id="input-newfile">
+      <input type="checkbox" value="isDir" id="input-newfile-is-dir" class="is-action" data-action="change-toggle-editor">
+      <label for="input-newfile-is-dir">Is directory</label>
+      <button class="close-action is-action" data-action="hide-save"></button>
+      <div class="editor-content">
+        <div class="editor" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <input type="checkbox" class="display-options-chk">
+    <div class="display-options">
+      <div class="row options">
+        <button class="close-action is-action" data-action="hide-options"></button>
+        <fieldset>
+          <legend>Actions:</legend>
+          <div>
+            <button class="input is-action" data-action="open-preview">Open</button>
+            <button class="input is-action" data-action="delete">Delete</button>
+          </div>
+          <div>
+            <span style="display: block">Rename:</span>
+            <input class="input" type="text" id="input-rename">
+            <button class="input is-action" data-action="rename">Rename</button>
+          </div>
+        </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row header">
+    <div class="column">
+      <button class="input is-action" data-action="display-save">&#10010;</button>
+    </div>
+    <div class="column address"><input type="text" value="file://root" disabled></div>
+    <div class="column">
+      <select title="Set Status Bar position" class="input is-action" data-action="set-status-bar-position">
+        <option value="">Status Bar</option>
+        <option value="status-bar-top" selected>On Top</option>
+        <option value="status-bar-bottom">On Bottom</option>
+      </select>
+    </div>
+    <div class="status-bar status-bar-top hide">
+      <div class="load-circle"></div>
+      <div class="load-text">Loading...</div>
+    </div>
+    <div class="status-bar-preview hide"></div>
+  </div>
+  <div class="row main-container"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/template7/1.4.1/template7.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.2.36/jodit.min.js"></script>
+  <script src="/assets/main-classes.js"></script>
+  <script src="/assets/main.js"></script>
+
+</html>
